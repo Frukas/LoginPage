@@ -1,0 +1,109 @@
+{{/* <html>
+    <head>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+    </head>
+    <body>
+        <h3>Sign Up as New User</h3>
+        <form action="http://localhost:9090/enterProfileInformation">
+
+        
+            <table>
+                <tr>
+                    <th>Full Name:</th>
+                    {{if .User.Name}}
+                        <th><input type="text" name="username" value={{.User.Name}} /></th>
+                    {{else}}
+                        <th><input type="text" name="username"  /></th>
+                    {{end}}
+                </tr>
+                <tr>                
+                    <th>Email: </th>                    
+                    {{if.User.IsGoogle}}
+                        <th><input type="text" name="email" readonly="readonly" value={{.User.Email}} /></th>
+                    {{else}}
+                        <th><input type="text" name="email" value={{.User.Email}} /></th>
+                    {{end}}
+                </tr>
+                <tr>
+                    <th>Telephone:</th> 
+                    {{if .User.Telephone}}
+                        <th><input type="text" name="telephone" value={{.User.Telephone}} /></th>
+                    {{else}}
+                        <th><input type="text" name="telephone"  /></th>
+                    {{end}}
+                </tr>                
+            <table/>
+            <input hidden type="text" value="{{.Redirect}}" name="redirect"/>
+            <input type="submit" value="Save & Continue"/>            
+            <a href="/mainProfile"> Cancel <a/>
+        </form>
+    </body>
+</html> */}}
+
+<!DOCTYPE html>
+
+<html >
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/style.css">
+
+        <title>Profile Information</title>
+
+    </head>
+
+    <body>
+
+        <div id="login">
+
+            <form class="card" action="http://localhost:9090/enterProfileInformation" >
+
+                <div class="card-header">
+                    <h2>Profile Information</h2>
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-content-area">
+                        <label for="username">Full Name</label>
+                        {{if .User.Name}}
+                            <th><input type="text" name="username" value={{.User.Name}} /></th>
+                        {{else}}
+                            <th><input type="text" name="username"  /></th>
+                        {{end}}
+                    </div>
+
+                    <div class="card-content-area">
+                        <label for="email">E-Mail</label>
+                        {{if.User.IsGoogle}}
+                            <th><input type="text" name="email" readonly="readonly" value={{.User.Email}} /></th>
+                        {{else}}
+                            <th><input type="text" name="email" value={{.User.Email}} /></th>
+                        {{end}}
+                    </div>
+
+                    <div class="card-content-area">
+                        <label for="email">Telephone</label>
+                        {{if .User.Telephone}}
+                            <th><input type="text" name="telephone" value={{.User.Telephone}} /></th>
+                        {{else}}
+                            <th><input type="text" name="telephone"  /></th>
+                        {{end}}
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <input class="submit" type="submit" value="Save & Continue"/>            
+                    <a href="/mainProfile"> Cancel </a>
+                </div>
+            </form>
+
+        </div>
+    </body>
+</html>

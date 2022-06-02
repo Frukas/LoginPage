@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html >
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/style.css">
+
+        <title>Login</title>
+
+    </head>
+
+    <body>
+
+        <div id="login">
+
+            <form class="card" action="http://localhost:9090/authLogin" method="POST" >
+
+                <div class="card-header">
+                    <h2>Login</h2>
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-content-area">
+                        <label for="email">E-Mail</label>
+                        <input type="email" name="email"/>                        
+                    </div>
+
+                    <div class="card-content-area">
+                        <label for="password">Password</label>
+                        <input type="password" name="password"/>
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <input class="submit" type="submit" value="OK">  
+                    <a href="http://localhost:9090/googleSession">Google Access</a>
+                    <a href="http://localhost:8080/signUp">New User</a>
+                </div>
+                    {{if .Message}}
+                        <div class="alert">{{.Message}}</div>
+                    {{end}}
+            </form>
+
+        </div>
+    </body>
+</html>

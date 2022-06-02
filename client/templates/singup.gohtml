@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <link rel="stylesheet" href="/static/css/style.css">        
+
+        <title>SingUp</title>
+    </head>
+
+    <body>
+        <div id="login">
+            <form class="card" action="http://localhost:9090/addNewUser">
+
+                <div class="card-header">
+                    <h2>Sing Up</h2>
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-content-area">
+                        {{if .User.Email}}
+                            <label for="email">E-Mail</label>
+                            <input type="email" name="email" value={{.User.Email}} />
+                        {{else}}
+                            <label for="email">E-Mail</label>
+                            <input type="email" name="email"/>
+                        {{end}}
+                    </div>
+
+                    <div class="card-content-area">
+                        <label for="password">Password</label>
+                        <input type="password" name="password1"/>
+                    </div>
+
+                </div>
+
+                <div class="card-footer">                    
+                    <input class="submit" type="submit" value="Register"/>
+                    <a  href="http://localhost:9090/googleSession">Google Access</a>
+                    <a  href="http://localhost:8080/login">Existing User Login</a>
+                </div>
+                    {{if .Message}}
+                        <div class="alert">{{.Message}}</div>
+                    {{end}}
+            </form>
+        </div>
+    </body>
+</html>
